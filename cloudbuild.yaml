@@ -10,11 +10,10 @@ steps:
   - 'asia.gcr.io/$PROJECT_ID/crud-operation:cloudbuild-$BRANCH_NAME-$SHORT_SHA'
   - 'asia.gcr.io/$PROJECT_ID/crud-operation:cloudbuild-$BRANCH_NAME-latest'
   
-images:
-       - asia.gcr.io/$PROJECT_ID/crud-operation:cloudbuild-$BRANCH_NAME-$SHORT_SHA
-       - asia.gcr.io/$PROJECT_ID/crud-operation:cloudbuild-$BRANCH_NAME-latest
-  
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['beta', 'run', 'deploy', 'crud-operation', '--image', 'asia.gcr.io/$PROJECT_ID/crud-operation:cloudbuild-$BRANCH_NAME-latest', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated'] 
  
+images:
+       - asia.gcr.io/$PROJECT_ID/crud-operation:cloudbuild-$BRANCH_NAME-$SHORT_SHA
+       - asia.gcr.io/$PROJECT_ID/crud-operation:cloudbuild-$BRANCH_NAME-latest
 
